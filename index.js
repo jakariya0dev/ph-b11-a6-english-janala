@@ -157,16 +157,23 @@ const userLogin = () => {
     const userName = document.getElementById('userName').value.trim();
     const userPassword = document.getElementById('userPassword').value.trim();
 
-    if(userName !== '' && userPassword === '123456') {
-
+    if(userName == '') {
+        alert('Invalid Username name');
+        
+    } 
+    else if(userPassword !== '123456') {
+        alert('Invalid Password');
+        
+    }
+    else {
         document.getElementById('hero').classList.add('hidden');
         document.getElementById('nav').classList.remove('hidden');
         document.getElementById('study').classList.remove('hidden');
         document.getElementById('faq').classList.remove('hidden');
 
-        // alert('valid Username or Password');
-    } else {
-        alert('Invalid Username or Password');
+        alert('Login Successful');
+
+        
     }
 
 }
