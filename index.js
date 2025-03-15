@@ -10,7 +10,7 @@ const showCategory = (data) => {
 
     data.map(item => {
 
-        categoryContainer.innerHTML += `<button onclick="getVocabularyByCategory(this.id)" id="${item.level_no}" class="btn btn-primary btn-outline"> 
+        categoryContainer.innerHTML += `<button onclick="getVocabularyByCategory(this.id)" id="${item.level_no}" class="btn btn-primary btn-outline btn-category"> 
                                             <i class="fa-solid fa-book-open"></i> 
                                             ${item.lessonName}
                                         </button>`;
@@ -20,6 +20,8 @@ const showCategory = (data) => {
 }
 
 const getVocabularyByCategory = (id) => {
+
+    makeCategoryButtonActive(id);
     
     fetch('https://openapi.programming-hero.com/api/level/'+id).
     then(res => res.json()).
@@ -31,19 +33,18 @@ const showVocabularyByCategory = (data) => {
     const vocabularyContainer = document.getElementById('vocabulary-container');
     vocabularyContainer.innerHTML = '';
 
-
     // handle no data found
-    if(data.length === 0) {
-        vocabularyContainer.innerHTML = `
-                                        <div class="font-anek text-center my-10 space-y-4 bg-blue-100 py-20 rounded-lg">
-                                            <span class="text-5xl text-red-500 block"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                                            <p>এই lesson এ এখনো কোনো Vocabulary যুক্ত করা হয়নি</p>
-                                            <p class="text-4xl font-medium">নেক্সট Lesson এ যান</p>
-                                        </div>
-                                        `;
-        return;
-    }
-     
+     if(data.length === 0) {
+         vocabularyContainer.innerHTML = `
+                                         <div class="font-anek text-center my-10 space-y-4 bg-blue-100 py-20 rounded-lg">
+                                             <span class="text-5xl text-red-500 block"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                                             <p>এই lesson এ এখনো কোনো Vocabulary যুক্ত করা হয়নি</p>
+                                             <p class="text-4xl font-medium">নেক্সট Lesson এ যান</p>
+                                         </div>
+                                         `;
+         return;
+     }
+ 
     const child = document.createElement('div');
     child.classList.add('grid', 'grid-cols-3', 'gap-5', 'bg-blue-100', 'rounded-lg', 'p-5');
 
@@ -71,7 +72,7 @@ const showVocabularyByCategory = (data) => {
     });
 
     vocabularyContainer.append(child);
-    console.log(data);
+    // console.log(data);
     
 }
 
@@ -114,6 +115,19 @@ const showSingleVocabularyData = (item) => {
                 `;
         modalDiv.innerHTML = modal;
     single_word_modal.showModal();
+}
+
+const makeCategoryButtonActive = (id) => {
+    const buttons = document.querySelectorAll('.btn-category');
+    buttons.forEach(button => {
+        button.classList.remove('bg-blue-600', 'text-white');
+        
+    })
+
+    const activeButton = document.getElementById(id);
+    activeButton.classList.add('bg-blue-600', 'text-white');
+
+    
 }
 
 getCategoryData();
