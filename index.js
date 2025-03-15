@@ -19,13 +19,20 @@ const showCategory = (data) => {
     
 }
 
+
 const getVocabularyByCategory = (id) => {
 
     makeCategoryButtonActive(id);
+
+    showingLoader();
     
     fetch('https://openapi.programming-hero.com/api/level/'+id).
     then(res => res.json()).
-    then(data => showVocabularyByCategory(data.data));
+    then(data => {
+
+        
+        showVocabularyByCategory(data.data)
+    });
 }
 
 const showVocabularyByCategory = (data) => {
@@ -128,6 +135,15 @@ const makeCategoryButtonActive = (id) => {
     activeButton.classList.add('bg-blue-600', 'text-white');
 
     
+}
+
+const showingLoader = () => {
+    const vocabularyContainer = document.getElementById('vocabulary-container');
+        vocabularyContainer.innerHTML = `
+        <div class="font-anek text-center my-10 bg-blue-100 py-20 rounded-lg">
+                <span class="loading loading-spinner loading-xl"></span>
+            </div>
+        `;
 }
 
  function pronounceWord(word) {
