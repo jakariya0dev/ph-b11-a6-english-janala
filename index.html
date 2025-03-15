@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .font-anek {
+            font-family: 'Anek Bangla', sans-serif;
+        }
+
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- Daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="font-roboto">
+
+    <nav class=" bg-blue-100 border-b border-blue-400">
+        <div class="w-11/12 mx-auto flex justify-between p-4">
+            <div class="logo flex items-center">
+                <span class="font-bold">English</span>
+                <img src="./assets/logo.png" alt="Logo">
+                <span class="font-anek">জানালা</span>
+            </div>
+            <div class="flex gap-x-4">
+                <button class="btn btn-outline btn-primary">Primary</button>
+                <button class="btn btn-outline btn-primary">Primary</button>
+                <button class="btn btn-outline btn-primary">Primary</button>
+            </div>
+        </div>
+
+    </nav>
+
+    <section id="hero" class="bg-blue-50">
+        <div class="w-11/12 mx-auto py-20">
+            <div class="grid grid-cols-2 gap-8">
+                <div class="flex items-center">
+                    <div>
+                        <h1 class="text-4xl font-bold"><span class="text-slate-400">English</span> is Easy</h1>
+                        <p class="text-2xl font-anek">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+                            আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons
+                            আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                        </p>
+                        <div class="flex flex-col items-start gap-y-4 mt-4">
+                            <input type="text" placeholder="User Name" class="input" />
+                            <input type="password" placeholder="Password here" class="input" />
+                            <button class="btn btn-primary">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img class="w-[520px]" src="./assets/hero-student.png" alt="Hero Image">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="study" class="w-11/12 mx-auto py-20">
+        <h2 class="text-4xl font-bold text-center">
+            <span class="text-slate-400">Let's</span> Learn Vocabularies
+        </h2>
+
+        <div id="category-button" class="flex justify-center gap-x-4 my-10">
+            <button class="btn btn-primary btn-outline"> <i class="fa-solid fa-book-open"></i> Intermediate</button>
+            <button class="btn btn-primary btn-outline"> <i class="fa-solid fa-book-open"></i> Beginner</button>
+            <button class="btn btn-primary btn-outline"> <i class="fa-solid fa-book-open"></i> Advanced</button>
+
+        </div>
+
+        <div id="study-container">
+
+            <div class="grid grid-cols-3 gap-4 bg-blue-100 rounded-lg p-5">
+                <div class="card rounded-lg bg-white text-center">
+                    <div class="card-body pt-10 space-y-2">
+                        <h3 class="text-2xl font-bold">Lesson 1</h3>
+                        <p class="text-sm">Lorem ipsum dolor sit amet.</p>
+                        <h3 class="text-2xl font-bold font-anek">বাংলা অর্থ</h3>
+                        <div class="flex justify-between mt-10">
+                            <span class="bg-blue-100 px-3 py-2 text-xl rounded-lg"><i class="fa-solid fa-circle-exclamation"></i></span>
+                            <span class="bg-blue-100 px-3 py-2 text-xl rounded-lg"><i class="fa-solid fa-volume-low"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card rounded-lg bg-white text-center">
+                    <div class="card-body">
+                        <h3 class="text-2xl font-bold">Lesson 2</h3>
+                        <p class="text-sm">এখানে আপনি শিখবেন কিভাবে একটি বাক্য তৈরি করতে হয়</p>
+                        <button class="btn btn-primary">Start Lesson</button>
+                    </div>
+                </div>
+                <div class="card rounded-lg bg-white text-center">
+                    <div class="card-body">
+                        <h3 class="text-2xl font-bold">Lesson 3</h3>
+                        <p class="text-sm">এখানে আপনি শিখবেন কিভাবে একটি বাক্য তৈরি করতে হয়</p>
+                        <button class="btn btn-primary">Start Lesson</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="font-anek text-center my-10 bg-blue-100 py-20 rounded-lg">
+                <p class="text-sm">আপনি এখনো কোন Lesson Select করেন নি</p>
+                <p class="text-4xl font-medium">একটি Lesson Select করুন</p>
+            </div>
+
+            <div class="font-anek text-center my-10 space-y-4 bg-blue-100 py-20 rounded-lg">
+                <span class="text-5xl text-red-500 block"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <p class="text-sm">এই lesson এ এখনো কোনো Vocabulary যুক্ত করা হয়নি</p>
+                <p class="text-4xl font-medium">নেক্সট Lesson এ যান</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="faq" class="w-11/12 mx-auto py-20">
+        <h2 class="text-4xl font-bold text-center">
+            <span class="text-slate-400">Frequently</span> Asked Questions
+        </h2>
+
+        <div class="accordion my-10 space-y-2">
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-blue-50 rounded-lg">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div class="collapse-title font-semibold">How can I start learning English on this website?</div>
+                <div class="collapse-content text-sm">You can start by exploring the beginner lessons, interactive
+                    exercises, and tutorials available on the platform.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-blue-50 rounded-lg">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">Is this website free to use?</div>
+                <div class="collapse-content text-sm">Most English learning websites offer free content, but some may
+                    have premium features or paid courses.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-blue-50 rounded-lg">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">Do I need to create an account?</div>
+                <div class="collapse-content text-sm">It depends on the website. Some allow free access without
+                    registration, while others require an account to track
+                    progress.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-blue-50 rounded-lg">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">How can I build my English vocabulary?</div>
+                <div class="collapse-content text-sm">You can improve your vocabulary by reading articles, using
+                    flashcards, practicing with quizzes, and engaging in
+                    interactive exercises.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-blue-50 rounded-lg">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">Do you offer certificates for completed courses?</div>
+                <div class="collapse-content text-sm">Many platforms provide certificates for completed courses,
+                    especially if they have a premium or structured learning
+                    program.</div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <footer class="w-11/12 mx-auto py-15 flex justify-between items-center">
+        <div class="space-y-1">
+            <div class="logo flex items-center">
+                <span class="font-bold">English</span>
+                <img src="./assets/logo.png" alt="Logo">
+                <span class="font-anek">জানালা</span>
+            </div>
+            <p class="font-anek text-2xl">ইংরেজি শিখুন সহজে</p>
+            <p class="text-sm">Prodviding Ed-Tech Apps Since 2025</p>
+        </div>
+        <div>
+            <h3 class="uppercase">Follow Us</h3>
+            <ul class="flex gap-x-2 text-xl">
+                <li><i class="fa-brands fa-facebook"></i></li>
+                <li><i class="fa-brands fa-youtube"></i></li>
+                <li><i class="fa-brands fa-square-instagram"></i></li>
+            </ul>
+    </footer>
+</body>
+
+</html>
