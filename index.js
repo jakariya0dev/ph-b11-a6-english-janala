@@ -23,10 +23,10 @@ const getVocabularyByCategory = (id) => {
     
     fetch('https://openapi.programming-hero.com/api/level/'+id).
     then(res => res.json()).
-    then(data => showVocabularyBaCategory(data.data));
+    then(data => showVocabularyByCategory(data.data));
 }
 
-const showVocabularyBaCategory = (data) => {
+const showVocabularyByCategory = (data) => {
 
     const vocabularyContainer = document.getElementById('vocabulary-container');
     vocabularyContainer.innerHTML = '';
@@ -56,11 +56,16 @@ const showVocabularyBaCategory = (data) => {
                                     <p class="text-sm font-anek">উচ্চারণ: ${item.pronunciation}</p>
                                     <h3 class="text-2xl font-bold font-anek">অর্থ: ${item.meaning ?? 'নেই'}</h3>
                                     <div class="flex justify-between mt-10">
-                                        <span class="bg-blue-100 px-3 py-2 text-xl rounded-lg"><i class="fa-solid fa-circle-exclamation"></i></span>
-                                        <span class="bg-blue-100 px-3 py-2 text-xl rounded-lg"><i class="fa-solid fa-volume-low"></i></span>
+                                        <button onclick="getSingleVocabularyData(${item.id})" class="bg-blue-100 px-3 py-2 text-xl rounded-lg">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </button>
+                                        <button class="bg-blue-100 px-3 py-2 text-xl rounded-lg">
+                                            <i class="fa-solid fa-volume-low"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+       
                     `;
         
     });
@@ -69,4 +74,46 @@ const showVocabularyBaCategory = (data) => {
     console.log(data);
     
 }
+
+const getSingleVocabularyData = (id) => {
+
+    fetch('https://openapi.programming-hero.com/api/word/'+id).
+    then(res => res.json()).
+    then(data => showSingleVocabularyData(data.data));
+
+    // single_word_modal.showModal()
+
+}
+
+const showSingleVocabularyData = (item) => {
+
+    const modalDiv = document.getElementById('word-modal');
+
+    console.log(modalDiv);
+    
+    
+    const modal = `
+                    <dialog id="single_word_modal" class="modal">
+                        <div class="modal-box">
+                            <h3 class="text-lg font-bold mb-5">${item.word} ( <i class="fa-solid fa-microphone-lines"></i> ${item.pronunciation})</h3>
+                            <p class="font-bold">Meaning</p>
+                            <p class="mb-5">${item.meaning}</p>
+                            <p class="font-bold">Example</p>
+                            <p class="mb-5">${item.sentence}</p>
+                            <p class="font-bold mb-2">সমার্থক শব্দ গুলো</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                ${item.synonyms.map(synonym => `<span class="bg-blue-100 px-2 py-1 rounded-md border-1">${synonym}</span>`).join('')}
+                            </div>
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <button class="btn btn-primary">Complete Learning</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
+                `;
+        modalDiv.innerHTML = modal;
+    single_word_modal.showModal();
+}
+
 getCategoryData();
