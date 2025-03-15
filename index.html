@@ -14,6 +14,11 @@
         rel="stylesheet">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+            /* Enables smooth scrolling */
+        }
+
         .font-anek {
             font-family: 'Anek Bangla', sans-serif;
         }
@@ -31,9 +36,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="font-roboto">
+<body class="font-roboto scroll-smooth">
 
-    <nav class=" bg-blue-100 border-b border-blue-400">
+    <nav id="nav" class="bg-blue-100 border-b border-blue-400 fixed top-0 left-0 w-full z-50 hidden">
+        <!-- Navbar -->
         <div class="w-11/12 mx-auto flex justify-between py-4">
             <div class="logo flex items-center">
                 <span class="font-bold">English</span>
@@ -41,9 +47,10 @@
                 <span class="font-anek">জানালা</span>
             </div>
             <div class="flex gap-x-4">
-                <button class="btn btn-outline btn-primary">Primary</button>
-                <button class="btn btn-outline btn-primary">Primary</button>
-                <button class="btn btn-outline btn-primary">Primary</button>
+                <a href="#faq" class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                <a href="#study" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</a>
+                <a onclick="userLogout()" class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Logout</a>
             </div>
         </div>
 
@@ -60,9 +67,9 @@
                             আপনাকে নিয়ে যাবে অন্য একটি Level এ
                         </p>
                         <div class="flex flex-col items-start gap-y-4 mt-4">
-                            <input type="text" placeholder="User Name" class="input" />
-                            <input type="password" placeholder="Password here" class="input" />
-                            <button class="btn btn-primary">Get Started</button>
+                            <input id="userName" type="text" placeholder="User Name" class="input" />
+                            <input id="userPassword" type="password" placeholder="Password here" class="input" />
+                            <button onclick="userLogin()" class="btn btn-primary">Get Started</button>
                         </div>
                     </div>
                 </div>
@@ -74,8 +81,8 @@
         </div>
     </section>
 
-    <section id="study" class="w-11/12 mx-auto py-20">
-        <h2 class="text-4xl font-bold text-center">
+    <section id="study" class="w-11/12 mx-auto py-20 hidden">
+        <h2 class="text-4xl font-bold text-center mt-24">
             <span class="text-slate-400">Let's</span> Learn Vocabularies
         </h2>
 
@@ -139,7 +146,7 @@
         <div id="word-modal"></div>
     </section>
 
-    <section id="faq" class="w-11/12 mx-auto py-20">
+    <section id="faq" class="w-11/12 mx-auto py-20 hidden">
         <h2 class="text-4xl font-bold text-center">
             <span class="text-slate-400">Frequently</span> Asked Questions
         </h2>
@@ -196,10 +203,24 @@
         <div>
             <h3 class="uppercase">Follow Us</h3>
             <ul class="flex gap-x-2 text-xl">
-                <li><i class="fa-brands fa-facebook"></i></li>
-                <li><i class="fa-brands fa-youtube"></i></li>
-                <li><i class="fa-brands fa-square-instagram"></i></li>
+                <li>
+                    <a href="https://www.facebook.com/" target="_blank" class="text-blue-600">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/" target="_blank" class="text-red-600">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/" target="_blank" class="text-pink-500">
+                        <i class="fa-brands fa-square-instagram"></i>
+                    </a>
+                </li>
             </ul>
+
+
     </footer>
 
     <script src="./index.js"></script>

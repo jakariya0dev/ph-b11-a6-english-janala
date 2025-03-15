@@ -98,12 +98,12 @@ const showSingleVocabularyData = (item) => {
                         <div class="modal-box">
                             <h3 class="text-lg font-bold mb-5">${item.word} ( <i class="fa-solid fa-microphone-lines"></i> ${item.pronunciation})</h3>
                             <p class="font-bold">Meaning</p>
-                            <p class="mb-5">${item.meaning}</p>
+                            <p class="mb-5">${item.meaning ?? 'নেই'}</p>
                             <p class="font-bold">Example</p>
                             <p class="mb-5">${item.sentence}</p>
                             <p class="font-bold mb-2">সমার্থক শব্দ গুলো</p>
                             <div class="flex flex-wrap gap-2 mb-5">
-                                ${item.synonyms.map(synonym => `<span class="bg-blue-100 px-2 py-1 rounded-md border-1">${synonym}</span>`).join('')}
+                                ${item.synonyms.length == 0 ? 'নেই' : item.synonyms.map(synonym => `<span class="bg-blue-100 px-2 py-1 rounded-md border-1">${synonym}</span>`).join('')}
                             </div>
                             <div class="modal-action">
                                 <form method="dialog">
@@ -135,5 +135,31 @@ const makeCategoryButtonActive = (id) => {
       utterance.lang = 'en-EN'; // English
       window.speechSynthesis.speak(utterance);
     }
+
+const userLogin = () => {
+    
+    const userName = document.getElementById('userName').value.trim();
+    const userPassword = document.getElementById('userPassword').value.trim();
+
+    if(userName !== '' && userPassword === '123456') {
+
+        document.getElementById('hero').classList.add('hidden');
+        document.getElementById('nav').classList.remove('hidden');
+        document.getElementById('study').classList.remove('hidden');
+        document.getElementById('faq').classList.remove('hidden');
+
+        // alert('valid Username or Password');
+    } else {
+        alert('Invalid Username or Password');
+    }
+
+}
+
+const userLogout = () => {
+    document.getElementById('hero').classList.remove('hidden');
+    document.getElementById('nav').classList.add('hidden');
+    document.getElementById('study').classList.add('hidden');
+    document.getElementById('faq').classList.add('hidden');
+}
 
 getCategoryData();
