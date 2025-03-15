@@ -60,7 +60,7 @@ const showVocabularyByCategory = (data) => {
                                         <button onclick="getSingleVocabularyData(${item.id})" class="bg-blue-100 px-3 py-2 text-xl rounded-lg">
                                             <i class="fa-solid fa-circle-exclamation"></i>
                                         </button>
-                                        <button class="bg-blue-100 px-3 py-2 text-xl rounded-lg">
+                                        <button onclick="pronounceWord('${item.word}')" class="bg-blue-100 px-3 py-2 text-xl rounded-lg">
                                             <i class="fa-solid fa-volume-low"></i>
                                         </button>
                                     </div>
@@ -129,5 +129,11 @@ const makeCategoryButtonActive = (id) => {
 
     
 }
+
+ function pronounceWord(word) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-EN'; // English
+      window.speechSynthesis.speak(utterance);
+    }
 
 getCategoryData();
