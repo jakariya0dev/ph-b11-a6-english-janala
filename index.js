@@ -195,6 +195,11 @@ const userLogout = () => {
     document.getElementById('nav').classList.add('hidden');
     document.getElementById('study').classList.add('hidden');
     document.getElementById('faq').classList.add('hidden');
+
+    Swal.fire({
+        title: "Logout Successful",
+        icon: "success"
+    });
 }
 
 getCategoryData();
