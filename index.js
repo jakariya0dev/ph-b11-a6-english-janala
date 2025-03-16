@@ -158,11 +158,22 @@ const userLogin = () => {
     const userPassword = document.getElementById('userPassword').value.trim();
 
     if(userName == '') {
-        alert('Invalid Username name');
+        // alert('Invalid Username name');
+
+        Swal.fire({
+            title: "Inavalid Username?",
+            text: "Check your username again",
+            icon: "error"
+        });
         
     } 
     else if(userPassword !== '123456') {
-        alert('Invalid Password');
+
+         Swal.fire({
+            title: "Inavalid Password?",
+            text: "Check your password again",
+            icon: "error"
+        });
         
     }
     else {
@@ -171,9 +182,10 @@ const userLogin = () => {
         document.getElementById('study').classList.remove('hidden');
         document.getElementById('faq').classList.remove('hidden');
 
-        alert('Login Successful');
-
-        
+         Swal.fire({
+            title: "Login Successful",
+            icon: "success"
+        });
     }
 
 }
